@@ -11,9 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
   <style>
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       RESET & BASE
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -36,12 +33,8 @@
       font-family: 'Inter', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
-      /* Gradient sections separated by very subtle lightening */
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       STAR CANVAS (parallax bg)
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #starCanvas {
       position: fixed;
       inset: 0;
@@ -49,9 +42,6 @@
       pointer-events: none;
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       FLOATING STARDUST PARTICLES
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .dust {
       position: fixed;
       border-radius: 50%;
@@ -68,15 +58,11 @@
       100% { transform: translateY(-10vh)  translateX(30px); opacity: 0; }
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       SECTION WRAPPER â€” continuous scroll
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .scene {
       position: relative;
       z-index: 2;
     }
 
-    /* Gradient bridges between sections */
     .scene::after {
       content: '';
       display: block;
@@ -85,9 +71,6 @@
       pointer-events: none;
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       SCENE 1 â€” THE SKY
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #scene1 {
       min-height: 100dvh;
       display: flex;
@@ -99,7 +82,6 @@
       background: linear-gradient(to bottom, #020208, #080818);
     }
 
-    /* Tap-to-begin button */
     #startBtn {
       position: relative;
       background: transparent;
@@ -112,7 +94,7 @@
       cursor: pointer;
       letter-spacing: 0.04em;
       min-width: 220px;
-      min-height: 56px;   /* thumb-friendly */
+      min-height: 56px;
       transition: background 0.4s, box-shadow 0.4s;
       z-index: 10;
     }
@@ -122,7 +104,6 @@
       outline: none;
     }
 
-    /* Sound-wave indicator */
     .sound-wave {
       display: none;
       align-items: center;
@@ -147,7 +128,6 @@
     }
     .playing .sound-wave { display: inline-flex; }
 
-    /* Typewriter text */
     #typer-wrap {
       margin-top: 3rem;
       opacity: 0;
@@ -182,7 +162,6 @@
       50% { border-color: transparent; }
     }
 
-    /* Scroll hint */
     #scrollHint {
       margin-top: 3rem;
       opacity: 0;
@@ -198,9 +177,6 @@
       50%       { transform: translateY(6px); }
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       SCENE 2 â€” TIMELINE
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #scene2 {
       padding: 2rem 1rem 4rem;
       background: linear-gradient(to bottom, #080818, #05050f 40%, #080818);
@@ -214,7 +190,6 @@
       gap: 0;
     }
 
-    /* Moon entry card */
     .entry {
       opacity: 0;
       transform: translateY(28px);
@@ -228,7 +203,6 @@
       transform: translateY(0);
     }
 
-    /* Moon image */
     .entry .moon-img {
       width: clamp(200px, 70vw, 280px);
       height: clamp(200px, 70vw, 280px);
@@ -238,7 +212,6 @@
       box-shadow: 0 0 40px rgba(245,200,66,0.25), 0 0 80px rgba(245,200,66,0.08);
       animation: glowPulse 4s ease-in-out infinite;
       cursor: pointer;
-      /* Blur-in on load */
       filter: blur(10px);
       transition: filter 0.9s ease, box-shadow 0.4s ease;
     }
@@ -250,7 +223,6 @@
       50%       { box-shadow: 0 0 55px rgba(245,200,66,0.4), 0 0 100px rgba(245,200,66,0.15); }
     }
 
-    /* Tap-glow burst on moon tap */
     .entry .moon-img.tapped {
       animation: tapGlow 0.8s ease forwards;
     }
@@ -260,7 +232,6 @@
       100% { box-shadow: 0 0 35px rgba(245,200,66,0.2), 0 0 70px rgba(245,200,66,0.06); filter: blur(0); }
     }
 
-    /* Milestone card â€” bigger + warmer */
     .entry.milestone .moon-img {
       width: clamp(240px, 80vw, 330px);
       height: clamp(240px, 80vw, 330px);
@@ -270,7 +241,6 @@
       background: radial-gradient(ellipse at center, rgba(245,200,66,0.04) 0%, transparent 70%);
     }
 
-    /* Year label */
     .year-label {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.6rem, 5vw, 2rem);
@@ -279,7 +249,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* Caption */
     .caption {
       font-size: clamp(0.88rem, 3vw, 1rem);
       color: #9090b0;
@@ -291,7 +260,6 @@
       margin-right: auto;
     }
 
-    /* Milestone sparkle icons */
     .sparkle-wrap {
       margin-top: 1rem;
     }
@@ -307,7 +275,6 @@
       to   { opacity: 1;   transform: scale(1.1); }
     }
 
-    /* Tap-sparkle burst particle */
     .burst {
       position: absolute;
       border-radius: 50%;
@@ -319,9 +286,6 @@
       100% { transform: translate(calc(-50% + var(--bx)), calc(-50% + var(--by))) scale(1); opacity: 0; }
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       SCENE 3 â€” TONIGHT'S MOON
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #scene3 {
       min-height: 100dvh;
       display: flex;
@@ -356,7 +320,6 @@
       to   { transform: scale(1.06); }
     }
 
-    /* Halo rings */
     .halo {
       position: absolute;
       inset: -20px;
@@ -395,9 +358,6 @@
       transform: translateY(0);
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       SCENE 4 â€” CLOSING MESSAGE
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #scene4 {
       min-height: 100dvh;
       display: flex;
@@ -429,7 +389,6 @@
     .closing-lines p:nth-child(2) { transition-delay: 0.6s; }
     .closing-lines p:nth-child(3) { transition-delay: 1.2s; }
 
-    /* Replay button */
     #replayBtn {
       margin-top: 3rem;
       display: inline-block;
@@ -452,7 +411,6 @@
     }
     #replayBtn:hover { background: rgba(245,200,66,0.1); box-shadow: 0 0 20px var(--glow); }
 
-    /* Closing heart-drift canvas */
     #heartCanvas {
       position: absolute;
       inset: 0;
@@ -460,9 +418,6 @@
       z-index: 0;
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       HIDDEN HEART BUTTON
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #heartBtn {
       position: fixed;
       bottom: 24px;
@@ -481,7 +436,6 @@
       50%       { transform: scale(1.18); }
     }
 
-    /* Hidden message overlay */
     #hiddenMsg {
       position: fixed;
       inset: 0;
@@ -523,9 +477,6 @@
       cursor: pointer;
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       FINGER TRAIL CANVAS
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #trailCanvas {
       position: fixed;
       inset: 0;
@@ -533,9 +484,6 @@
       pointer-events: none;
     }
 
-    /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-       UTILITY
-    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -546,19 +494,12 @@
 </head>
 <body>
 
-<!-- ✦ Star parallax canvas (fixed bg) -->
 <canvas id="starCanvas" aria-hidden="true"></canvas>
-
-<!-- ✦ Touch trail canvas -->
 <canvas id="trailCanvas" aria-hidden="true"></canvas>
-
-<!-- ✦ Floating stardust particles (CSS, no JS) -->
 <div id="dustContainer" aria-hidden="true"></div>
 
-<!-- ✨ Hidden heart button -->
 <button id="heartBtn" aria-label="A hidden message for you" title="tap me ✨">💞</button>
 
-<!-- ✨ Hidden message overlay -->
 <div id="hiddenMsg" role="dialog" aria-modal="true">
   <div class="msg-inner">
     P.S. I made this because you deserve to feel celebrated — not just on your birthday, but always.
@@ -567,9 +508,6 @@
   </div>
 </div>
 
-<!-- ───────────────────────────────────────────────────────────────────────────
-     SCENE 1 — THE SKY
-──────────────────────────────────────────────────────────────────────────── -->
 <section id="scene1" class="scene">
   <button id="startBtn" aria-label="Tap to begin your birthday gift">
     <span id="btnText">🌙 Tap to begin your gift</span>
@@ -589,16 +527,10 @@
   <div id="scrollHint" aria-hidden="true">↓ &nbsp; scroll to begin &nbsp; ↓</div>
 </section>
 
-<!-- ───────────────────────────────────────────────────────────────────────────
-     SCENE 2 — TIMELINE (images 4.png–26.png)
-──────────────────────────────────────────────────────────────────────────── -->
 <section id="scene2" class="scene">
   <div class="timeline-inner" id="timeline"></div>
 </section>
 
-<!-- ───────────────────────────────────────────────────────────────────────────
-     SCENE 3 — TONIGHT'S MOON
-──────────────────────────────────────────────────────────────────────────── -->
 <section id="scene3" class="scene">
   <div class="final-moon-wrap">
     <div class="halo"></div>
@@ -613,9 +545,6 @@
   </p>
 </section>
 
-<!-- ───────────────────────────────────────────────────────────────────────────
-     SCENE 4 — CLOSING MESSAGE
-──────────────────────────────────────────────────────────────────────────── -->
 <section id="scene4" class="scene" style="position:relative; overflow:hidden;">
   <canvas id="heartCanvas" aria-hidden="true"></canvas>
 
@@ -628,14 +557,10 @@
   <button id="replayBtn" aria-label="Watch again from the beginning">🌙 &nbsp;watch again</button>
 </section>
 
-<!-- ───────────────── AUDIO ───────────────── -->
 <audio id="bgMusic" preload="auto" loop>
   <source src="Mundhinam-Parthene-MassTamilan.com.mp3" type="audio/mpeg" />
 </audio>
 
-<!-- ───────────────────────────────────────────────────────────────────────────
-     JAVASCRIPT
-──────────────────────────────────────────────────────────────────────────── -->
 <script>
 /* ───────────────────────────────────────────────────────────────────────────
    CONFIG
@@ -643,24 +568,43 @@
 const BIRTH_YEAR = 2004;
 const END_YEAR   = 2026;
 
+/*
+  One line per non-milestone year, in order. There are 18 of these
+  because there are 18 non-milestone years between 2004 and 2026
+  (23 total years minus 5 milestone years: 2009, 2014, 2019, 2024, 2026).
+  Written as a fixed sequence — no modulo, no repeats.
+*/
 const CAPTIONS = [
-  "This is the moon that watched you take your first breath.",
-  "Look at you, out here stealing the moon's job for years.",
-  "Same moon, new year, still can't compete with your glow.",
-  "This one was just quietly waiting for you to grow up and be amazing.",
-  `Fun fact: the moon has been rehearsing for tonight since ${BIRTH_YEAR}.`,
-  "Every year it shows up for you. Rude of it to think it's the main event.",
-  "A little older, a little brighter — same goes for you.",
-  "The moon clocked in again. Still can't match your energy.",
-  "Quietly faithful, consistently luminous — you and the moon both.",
-  "This year's moon agrees: you've always been the main character.",
+  "This is the moon that watched you take your first breath.",              // 2004
+  "One year in, and the sky already had a favorite.",                        // 2005
+  "The moon showed up again, still no match for you.",                       // 2006
+  "Same sky, same faithful moon, quietly proud of you.",                     // 2007
+  "Look at you, out here stealing the moon's job for years.",                // 2008
+  "Another lap around the sun, another glow-up.",                            // 2010
+  "The moon clocked in again. Still can't match your energy.",               // 2011
+  "A little older, a little brighter — same goes for you.",                  // 2012
+  "This one was just quietly waiting for you to grow up and be amazing.",    // 2013
+  "Every year it shows up for you. Rude of it to think it's the main event.",// 2015
+  "The moon took notes on how to glow. You're still the better teacher.",    // 2016
+  "Quietly faithful, consistently luminous — you and the moon both.",        // 2017
+  "The sky's been rehearsing for tonight since the day you were born.",      // 2018
+  "This year's moon agrees: you've always been the main character.",        // 2020
+  "The moon waxed, waned, and came back — kind of like you, but cooler.",    // 2021
+  "Same moon, new year, still can't compete with your glow.",                // 2022
+  "It circled the earth over 300 times just to get back here for you.",     // 2023
+  "One more year closer to a very deserving milestone.",                     // 2025
 ];
 
+/*
+  One line per milestone year, in order. Milestones fall at 2009, 2014,
+  2019, 2024, and 2026 — five of them, five unique lines.
+*/
 const MILESTONE_CAPTIONS = [
-  "Every five years, the moon gets a little speechless. Can you blame it?",
-  "Five more years of magic. The moon kept receipts.",
-  "A milestone year. The sky is literally glowing.",
-  "The moon wanted to do something special. So it made itself extra bright — just for you.",
+  "Every five years, the moon gets a little speechless. Can you blame it?", // 2009
+  "Five more years of magic. The moon kept receipts.",                      // 2014
+  "A milestone year. The sky is literally glowing.",                        // 2019
+  "The moon wanted to do something special. So it made itself extra bright — just for you.", // 2024
+  "The big one. Tonight, the whole sky is in on it.",                       // 2026
 ];
 
 /* ───────────────────────────────────────────────────────────────────────────
@@ -670,7 +614,7 @@ const MILESTONE_CAPTIONS = [
   const canvas = document.getElementById('starCanvas');
   const ctx = canvas.getContext('2d');
   let stars = [];
-  let W, H, scrollY = 0;
+  let W, H;
 
   function resize() {
     W = canvas.width  = window.innerWidth;
@@ -679,13 +623,12 @@ const MILESTONE_CAPTIONS = [
   resize();
   window.addEventListener('resize', resize);
 
-  // Generate stars
   for (let i = 0; i < 220; i++) {
     stars.push({
-      x:  Math.random(),           // fractional (0-1) so they scale
+      x:  Math.random(),
       y:  Math.random(),
       r:  Math.random() * 1.4 + 0.3,
-      speed: Math.random() * 0.3 + 0.05,  // parallax depth
+      speed: Math.random() * 0.3 + 0.05,
       opacity: Math.random() * 0.7 + 0.3,
       twinklePeriod: 2000 + Math.random() * 4000,
       twinkleOffset: Math.random() * 6283,
@@ -697,7 +640,7 @@ const MILESTONE_CAPTIONS = [
     const sy = window.scrollY;
     stars.forEach(s => {
       const twinkle = 0.6 + 0.4 * Math.sin(ts / s.twinklePeriod + s.twinkleOffset);
-      const py = (s.y * H - sy * s.speed + H * 10) % H;  // parallax + wrap
+      const py = (s.y * H - sy * s.speed + H * 10) % H;
       ctx.beginPath();
       ctx.arc(s.x * W, py, s.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(255,255,255,${s.opacity * twinkle})`;
@@ -730,8 +673,7 @@ const MILESTONE_CAPTIONS = [
 })();
 
 /* ───────────────────────────────────────────────────────────────────────────
-   TOUCH-TRAIL CANVAS (finger sparkle Easter egg)
-   — activated only after shooting star fires
+   TOUCH-TRAIL CANVAS
 ──────────────────────────────────────────────────────────────────────────── */
 const trailCanvas = document.getElementById('trailCanvas');
 const trailCtx = trailCanvas.getContext('2d');
@@ -810,19 +752,16 @@ function fireShootingStar() {
   document.body.appendChild(s);
   shootingStarEl = s;
 
-  // Animate across
   requestAnimationFrame(() => {
     s.style.transform = 'translateX(calc(100vw + 60px))';
   });
 
-  // Easter egg: tapping the shooting star activates finger trail
   s.addEventListener('click',  activateTrail);
   s.addEventListener('touchstart', activateTrail, { passive: true });
 
   setTimeout(() => { s.style.opacity = '0'; }, 1300);
   setTimeout(() => { s.remove(); shootingStarEl = null; }, 1700);
 
-  // Repeat loosely every 25–45s
   setTimeout(fireShootingStar, 25000 + Math.random() * 20000);
 }
 
@@ -831,7 +770,6 @@ function activateTrail() {
   setTimeout(() => { trailActive = false; }, 5000);
 }
 
-// Fire first star at ~15s after tap-to-begin
 let starScheduled = false;
 function scheduleShootingStar() {
   if (starScheduled) return;
@@ -841,29 +779,29 @@ function scheduleShootingStar() {
 
 /* ───────────────────────────────────────────────────────────────────────────
    BUILD TIMELINE
+   Each year gets exactly one caption from its own dedicated list —
+   walked forward with its own counter, never wrapping/repeating.
 ──────────────────────────────────────────────────────────────────────────── */
 const timeline = document.getElementById('timeline');
-let milestoneCount = 0;
+let captionIdx = 0;
+let milestoneIdx = 0;
 
 for (let yr = BIRTH_YEAR; yr <= END_YEAR; yr++) {
   const idx     = yr - BIRTH_YEAR;
-  const fileNum = yr - 2000;            // 4 → 26
+  const fileNum = yr - 2000;
   const isMilestone = (idx > 0 && idx % 5 === 0) || yr === END_YEAR;
 
   const entry = document.createElement('div');
   entry.className = 'entry' + (isMilestone ? ' milestone' : '');
 
-  // Moon image
   const img = document.createElement('img');
   img.className = 'moon-img';
   img.alt = `Moon on August 1st, ${yr}`;
   img.loading = 'lazy';
   img.src = `${fileNum}.png`;
 
-  // blur-to-sharp on load
   img.addEventListener('load', () => img.classList.add('loaded'));
   img.addEventListener('error', () => {
-    // Fallback: show a crescent emoji
     img.style.display = 'none';
     const fb = document.createElement('div');
     fb.style.cssText = `font-size:6rem; opacity:0.4; margin:1rem auto;`;
@@ -871,28 +809,25 @@ for (let yr = BIRTH_YEAR; yr <= END_YEAR; yr++) {
     entry.insertBefore(fb, img.nextSibling);
   });
 
-  // Tap-glow burst
   img.addEventListener('click',  e => tapGlow(e, img, entry));
   img.addEventListener('touchend', e => tapGlow(e.changedTouches[0], img, entry));
 
-  // Year label
   const yearEl = document.createElement('div');
   yearEl.className = 'year-label';
   yearEl.textContent = yr;
 
-  // Caption
   const capEl = document.createElement('div');
   capEl.className = 'caption';
   if (isMilestone) {
-    capEl.textContent = MILESTONE_CAPTIONS[milestoneCount % MILESTONE_CAPTIONS.length];
-    milestoneCount++;
+    capEl.textContent = MILESTONE_CAPTIONS[Math.min(milestoneIdx, MILESTONE_CAPTIONS.length - 1)];
+    milestoneIdx++;
   } else {
-    capEl.textContent = CAPTIONS[idx % CAPTIONS.length];
+    capEl.textContent = CAPTIONS[Math.min(captionIdx, CAPTIONS.length - 1)];
+    captionIdx++;
   }
 
   entry.append(img, yearEl, capEl);
 
-  // Milestone sparkle
   if (isMilestone) {
     const sw = document.createElement('div');
     sw.className = 'sparkle-wrap';
@@ -903,13 +838,11 @@ for (let yr = BIRTH_YEAR; yr <= END_YEAR; yr++) {
   timeline.appendChild(entry);
 }
 
-/* Tap-glow burst helper */
 function tapGlow(e, img, entry) {
   img.classList.remove('tapped');
-  void img.offsetWidth;   // reflow to restart animation
+  void img.offsetWidth;
   img.classList.add('tapped');
 
-  // Spawn burst particles
   const rect = entry.getBoundingClientRect();
   const cx = (e.clientX || e.pageX) - rect.left;
   const cy = (e.clientY || e.pageY) - rect.top;
@@ -939,21 +872,19 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
-      observer.unobserve(e.target);   // fire once
+      observer.unobserve(e.target);
     }
   });
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.entry').forEach(el => observer.observe(el));
 
-// Scene 3 text reveal
 const scene3Text = document.querySelector('.scene3-text');
 const obsScene3 = new IntersectionObserver(([e]) => {
   if (e.isIntersecting) { scene3Text.classList.add('visible'); obsScene3.disconnect(); }
 }, { threshold: 0.3 });
 obsScene3.observe(scene3Text);
 
-// Scene 4 paragraph reveals
 document.querySelectorAll('.closing-lines p').forEach(p => {
   const o = new IntersectionObserver(([e]) => {
     if (e.isIntersecting) { p.classList.add('visible'); o.disconnect(); }
@@ -961,7 +892,6 @@ document.querySelectorAll('.closing-lines p').forEach(p => {
   o.observe(p);
 });
 
-// Replay button reveal
 const replayObserver = new IntersectionObserver(([e]) => {
   if (e.isIntersecting) {
     document.getElementById('replayBtn').classList.add('visible');
@@ -971,7 +901,6 @@ const replayObserver = new IntersectionObserver(([e]) => {
 }, { threshold: 0.5 });
 replayObserver.observe(document.getElementById('replayBtn'));
 
-// Heart button shows after scene 2 starts
 const heartBtn = document.getElementById('heartBtn');
 const scene2El = document.getElementById('scene2');
 const obsHeart = new IntersectionObserver(([e]) => {
@@ -979,15 +908,15 @@ const obsHeart = new IntersectionObserver(([e]) => {
 }, { threshold: 0.05 });
 obsHeart.observe(scene2El);
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   FINAL MOON â€” blur-to-sharp
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ───────────────────────────────────────────────────────────────────────────
+   FINAL MOON — blur-to-sharp
+──────────────────────────────────────────────────────────────────────────── */
 const finalMoonEl = document.getElementById('finalMoon');
 finalMoonEl.addEventListener('load', () => finalMoonEl.classList.add('loaded'));
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   SCENE 1 â€” START BUTTON
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ───────────────────────────────────────────────────────────────────────────
+   SCENE 1 — START BUTTON
+──────────────────────────────────────────────────────────────────────────── */
 const startBtn = document.getElementById('startBtn');
 const bgMusic  = document.getElementById('bgMusic');
 
@@ -999,37 +928,28 @@ function startExperience() {
   if (started) return;
   started = true;
 
-  // Play music
   bgMusic.volume = 0;
   bgMusic.play().then(() => {
     fadeInAudio(bgMusic, 0, 0.72, 3000);
-  }).catch(() => {
-    // autoplay blocked â€” user tapped, should work; silently ignore
-  });
+  }).catch(() => {});
 
-  // Visual: show sound wave inside button
   startBtn.classList.add('playing');
   document.getElementById('btnText').textContent = ' Playing...💜🌕';
 
-  // Reveal typewriter container
   const typerWrap = document.getElementById('typer-wrap');
   typerWrap.style.opacity = '1';
 
-  // Animate typer1 (typewriter effect)
   const t1 = document.getElementById('typer1');
   t1.style.animation = 'typingMain 3.5s steps(28, end) forwards, blink 0.8s step-end 5';
 
-  // Reveal typer2 after t1 finishes
   setTimeout(() => {
     document.getElementById('typer2').style.opacity = '1';
   }, 3800);
 
-  // Scroll hint
   setTimeout(() => {
     document.getElementById('scrollHint').style.opacity = '1';
   }, 6000);
 
-  // Schedule shooting star
   scheduleShootingStar();
 }
 
@@ -1042,9 +962,9 @@ function fadeInAudio(audio, from, to, duration) {
   }, 50);
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────────────────────────────────────────────────
    HIDDEN HEART MESSAGE
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+──────────────────────────────────────────────────────────────────────────── */
 const hiddenMsg = document.getElementById('hiddenMsg');
 heartBtn.addEventListener('click', () => hiddenMsg.classList.add('open'));
 heartBtn.addEventListener('touchend', e => { e.preventDefault(); hiddenMsg.classList.add('open'); });
@@ -1052,9 +972,9 @@ heartBtn.addEventListener('touchend', e => { e.preventDefault(); hiddenMsg.class
 document.getElementById('closeMsg').addEventListener('click',  () => hiddenMsg.classList.remove('open'));
 document.getElementById('closeMsg').addEventListener('touchend', e => { e.preventDefault(); hiddenMsg.classList.remove('open'); });
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────────────────────────────────────────────────
    CLOSING HEART-DRIFT ANIMATION (canvas)
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+──────────────────────────────────────────────────────────────────────────── */
 function startHeartDrift() {
   const canvas = document.getElementById('heartCanvas');
   const ctx = canvas.getContext('2d');
@@ -1067,7 +987,6 @@ function startHeartDrift() {
   resize();
   window.addEventListener('resize', resize);
 
-  // Particles drift and form a loose heart outline then dissolve back
   const particles = [];
   for (let i = 0; i < 80; i++) {
     particles.push({
@@ -1082,7 +1001,6 @@ function startHeartDrift() {
     });
   }
 
-  // Heart parametric positions (scaled to canvas center)
   function heartXY(t) {
     const scale = Math.min(canvas.width, canvas.height) * 0.15;
     const cx = canvas.width * 0.5;
@@ -1098,7 +1016,7 @@ function startHeartDrift() {
     p.targetY = pt.y + (Math.random()-0.5)*30;
   });
 
-  let phase = 0;   // 0 = drifting to heart, 1 = holding, 2 = dissolving back
+  let phase = 0;
   let phaseStart = Date.now();
 
   function draw() {
@@ -1120,7 +1038,6 @@ function startHeartDrift() {
       ctx.fill();
     });
 
-    // Phase transitions
     if (phase === 0 && elapsed > 4000) { phase = 1; phaseStart = Date.now(); }
     if (phase === 1 && elapsed > 5000) { phase = 2; phaseStart = Date.now(); }
     if (phase === 2 && elapsed > 5000) {
@@ -1138,18 +1055,18 @@ function startHeartDrift() {
   draw();
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────────────────────────────────────────────────
    REPLAY
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+──────────────────────────────────────────────────────────────────────────── */
 document.getElementById('replayBtn').addEventListener('click', () => location.reload());
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────────────────────────────────────────────────
    SERVICE WORKER (PWA)
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+──────────────────────────────────────────────────────────────────────────── */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('service-worker.js')
-      .catch(() => {}); // fail silently on localhost file:// protocol
+      .catch(() => {});
   });
 }
 </script>
