@@ -1,0 +1,13 @@
+﻿{
+  "name": "Her Moon",
+  "short_name": "HerMoon",
+  "description": "A romantic birthday experience — the moon on every August 1st.",
+  "start_url": "her_moon.html",
+  "display": "standalone",
+  "background_color": "#05050f",
+  "theme_color": "#05050f",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "26.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
