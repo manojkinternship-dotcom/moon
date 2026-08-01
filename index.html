@@ -241,11 +241,19 @@
       background: radial-gradient(ellipse at center, rgba(245,200,66,0.04) 0%, transparent 70%);
     }
 
+    .date-label {
+      font-size: clamp(0.72rem, 2.4vw, 0.82rem);
+      color: #7a7a98;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 1.4rem;
+    }
+
     .year-label {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.6rem, 5vw, 2rem);
       color: var(--gold);
-      margin-top: 1.4rem;
+      margin-top: 0.3rem;
       letter-spacing: 0.06em;
     }
 
@@ -520,7 +528,8 @@
     <div id="typer1" aria-label="Happy Birthday, Moonlight.">Happy Birthday, Moonlight.</div>
     <div id="typer2">
       Somewhere tonight, the sky is showing off —<br>
-      because it knows you're looking up.
+      because it knows you're looking up.<br>
+      <em>August 1st, 2026.</em>
     </div>
   </div>
 
@@ -541,7 +550,7 @@
   <p class="scene3-text">
     And here it is.<br>
     <em>Tonight's moon.</em><br>
-    The one that gets to shine on your birthday.
+    August 1st, 2026 — the one that gets to shine on your birthday.
   </p>
 </section>
 
@@ -812,6 +821,10 @@ for (let yr = BIRTH_YEAR; yr <= END_YEAR; yr++) {
   img.addEventListener('click',  e => tapGlow(e, img, entry));
   img.addEventListener('touchend', e => tapGlow(e.changedTouches[0], img, entry));
 
+  const dateEl = document.createElement('div');
+  dateEl.className = 'date-label';
+  dateEl.textContent = 'August 1st';
+
   const yearEl = document.createElement('div');
   yearEl.className = 'year-label';
   yearEl.textContent = yr;
@@ -826,7 +839,7 @@ for (let yr = BIRTH_YEAR; yr <= END_YEAR; yr++) {
     captionIdx++;
   }
 
-  entry.append(img, yearEl, capEl);
+  entry.append(img, dateEl, yearEl, capEl);
 
   if (isMilestone) {
     const sw = document.createElement('div');
